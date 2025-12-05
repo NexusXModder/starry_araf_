@@ -1,0 +1,242 @@
+/* ########## গ্লোবাল স্টাইলস ও রিসেট ########## */
+:root {
+    --primary-color: #007bff; /* ব্র্যান্ড কালার: নীল */
+    --secondary-color: #6c757d; /* টেক্সট কালার */
+    --background-color: #f8f9fa; /* হালকা ব্যাকগ্রাউন্ড */
+    --card-background: #ffffff; /* কার্ড ব্যাকগ্রাউন্ড */
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05); /* প্রিমিয়াম হালকা শ্যাডো */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* আধুনিক, প্রিমিয়াম ফন্ট */
+    background-color: var(--background-color);
+    color: #343a40; /* গাঢ় টেক্সট */
+    line-height: 1.6;
+}
+
+.container { /* কন্টেন্টের মাঝখানে রাখার জন্য */
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+h2 { /* সেকশন হেডিং এর প্রিমিয়াম ডিজাইন */
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h2::after { /* হেডিং এর নিচে ব্র্যান্ড কালারের আন্ডারলাইন */
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.card { /* প্রিমিয়াম কার্ড স্টাইল */
+    background-color: var(--card-background);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-light);
+    border-left: 5px solid var(--primary-color); /* বাম দিকে রঙের স্ট্র্যাপ */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover { /* হোভার ইফেক্ট */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* ########## হিরো সেকশন স্টাইল ########## */
+.hero {
+    background: linear-gradient(135deg, #007bff, #0056b3); /* আকর্ষণীয় গ্র্যাডিয়েন্ট */
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.profile-pic-container { /* প্রোফাইল পিকচারের গোল ফ্রেম */
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* ########## যোগাযোগ ও সোশ্যাল ########## */
+.contact-social {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr; 
+    align-items: start;
+}
+
+@media (min-width: 768px) { /* ডেস্কটপের জন্য কলাম */
+    .contact-social {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.contact-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-details li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.contact-details li i {
+    color: var(--primary-color);
+    margin-right: 15px;
+    font-size: 1.3rem;
+}
+
+.social-links {
+    text-align: center;
+}
+
+.social-icon { /* সোশ্যাল আইকনগুলির বৃত্তাকার ডিজাইন */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.facebook { background-color: #1877F2; }
+.instagram { background-color: #C13584; }
+.whatsapp { background-color: #25D366; }
+
+/* ########## শিক্ষাগত যোগ্যতা টাইমলাইন (মোবাইল-ডেস্কটপ রেসপনসিভ) ########## */
+.timeline {
+    position: relative;
+    margin-top: 20px;
+}
+
+.timeline::before { /* উল্লম্ব রেখা */
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px; /* মোবাইলের জন্য বাম দিকে */
+    width: 4px;
+    background: #e9ecef;
+    border-radius: 2px;
+}
+
+@media (min-width: 768px) {
+    .timeline::before {
+        left: 50%; /* ডেস্কটপের জন্য কেন্দ্রে */
+        transform: translateX(-50%);
+    }
+    .timeline-item {
+        width: 50%; /* ডেস্কটপে দুই কলামে ভাগ */
+    }
+    .timeline-item:nth-child(odd) { /* বাম দিকের কন্টেন্ট */
+        float: left;
+        clear: both;
+        text-align: right;
+    }
+    .timeline-item:nth-child(even) { /* ডান দিকের কন্টেন্ট */
+        float: right;
+        clear: both;
+    }
+    .timeline-item:nth-child(odd) .timeline-content {
+        margin-right: 60px;
+        margin-left: 0;
+    }
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 60px;
+    }
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-dot { /* বিন্দুর স্টাইল */
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+    border: 4px solid var(--card-background);
+    border-radius: 50%;
+    top: 15px;
+    left: 14px;
+    z-index: 10;
+}
+
+.timeline-content {
+    margin-left: 60px; /* বিন্দুর পরে কন্টেন্ট শুরু */
+}
+.education {
+    overflow: auto; /* ফ্লোটিং এলিমেন্ট (ডেস্কটপে) ঠিক করার জন্য */
+}
+
+
+/* ########## ঠিকানা গ্রিড ########## */
+.address-grid {
+    display: grid;
+    gap: 20px;
+    /* ৩টি কলামে বা স্ক্রিন ছোট হলে স্বয়ংক্রিয়ভাবে কম কলামে সাজানো */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+}
+
+.address-item {
+    text-align: center;
+}
+
+/* ########## ফুটার ########## */
+footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
